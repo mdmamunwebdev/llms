@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::table('student_numbers', function (Blueprint $table) {
-            $table->tinyInteger("std_id");
+            $table->tinyInteger("student_id");
         });
     }
 
@@ -26,7 +26,7 @@ return new class extends Migration
     public function down()
     {
         Schema::table('student_numbers', function (Blueprint $table) {
-            $table->dropColumn("std_id");
+            $table->dropColumn("student_id");
         });
     }
 };
