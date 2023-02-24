@@ -4,6 +4,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\BookIsssueController;
+use App\Http\Controllers\BookReturnController;
+use App\Http\Controllers\BookLostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,5 +46,12 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified'])-
     Route::post('/delete/books/{id}', [BookController::class, "deleteBook"])->name("delete.books");
     Route::get('/status/books/{id}', [BookController::class, "statusBook"])->name("status.books");
 
+    Route::get('book/issue', [BookIsssueController::class, "index"])->name('book.issue');
+    Route::get('book/search', [BookIsssueController::class, "bookSearch"])->name('book.search');
+    Route::get('member/search', [BookIsssueController::class, "memberSearch"])->name('member.search');
+    Route::get('book/issue-confirm', [BookIsssueController::class, "issueConfirm"])->name('book.issue-confirm');
+
+    Route::get('book/return', [BookReturnController::class, "index"])->name('book.return');
+    Route::get('book/lost', [BookLostController::class, "index"])->name('book.lost');
 
 });

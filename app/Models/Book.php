@@ -21,6 +21,7 @@ class Book extends Model
         return self::$imgFileDir = self::$imgDir.self::$imgName;
 
     }
+
     static function bookNew($request) {
 
         self::$book = new Book();
@@ -32,6 +33,24 @@ class Book extends Model
         self::$book->save();
         return self::$book;
 
+    }
+
+    static function bookUpdate($request, $id) {
+        self::$book = Book::find($id);
+        if ( $request->file('image') ) {
+            if ( file_exists(self::$book->image) ) {
+                unlink(self::$book->image);
+            }
+            self::$book->image = self::getImgUrl($request);
+        }
+        else {
+            self::$book->image = self::$book->image;
+        }
+
+        self::$book->name = $request->name;
+        self::$book->book_code = $request->book_code;
+        self::$book->department = $request->department;
+        self::$book->save();
     }
 
     public function atuthors() {
