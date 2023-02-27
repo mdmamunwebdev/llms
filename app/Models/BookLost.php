@@ -17,4 +17,12 @@ class BookLost extends Model
         self::$lostBook->fine = 300;
         self::$lostBook->save();
     }
+
+    public function book() {
+        return $this->belongsTo(Book::class);
+    }
+
+    public function student() {
+        return $this->belongsTo(Student::class);
+    }
 }

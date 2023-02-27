@@ -25,9 +25,9 @@
                         <div class="float-end">
                             <div class="input-group input-group-sm">
                                 <select class="form-select form-select-sm">
-                                    <option value="JA" selected>CSE</option>
-                                    <option value="DE">BBA</option>
-                                    <option value="NO">MBA</option>
+                                    <option value="cse" selected>CSE</option>
+                                    <option value="bba">BBA</option>
+                                    <option value="mba">MBA</option>
                                 </select>
                                 <label class="input-group-text">Department</label>
                             </div>
@@ -37,7 +37,7 @@
 
                     <div class="text-muted text-center">
                         <p class="mb-2">All Book</p>
-                        <h4>6385</h4>
+                        <h4>{{ $bookStatistics['allBook'] }}</h4>
                     </div>
 
                     <div class="table-responsive mt-4">
@@ -54,12 +54,12 @@
                                 </td>
                                 <td>
                                     <p class="text-muted mb-1">Books</p>
-                                    <h5 class="mb-0">20 %</h5>
+                                    <h5 class="mb-0">{{ $bookStatistics['bookAvailableACal'] }} %</h5>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <h5 class="font-size-14 mb-1">Issued</h5>
+                                    <h5 class="font-size-14 mb-1">Booked</h5>
                                     <p class="text-muted mb-0">Neque quis est</p>
                                 </td>
 
@@ -68,37 +68,23 @@
                                 </td>
                                 <td>
                                     <p class="text-muted mb-1">Books</p>
-                                    <h5 class="mb-0">37 %</h5>
+                                    <h5 class="mb-0">{{ $bookStatistics['bookingCal'] }} %</h5>
                                 </td>
                             </tr>
-                            <tr>
-                                <td>
-                                    <h5 class="font-size-14 mb-1">Delayed</h5>
-                                    <p class="text-muted mb-0">Neque quis est</p>
-                                </td>
+                            {{--                            <tr>--}}
+                            {{--                                <td>--}}
+                            {{--                                    <h5 class="font-size-14 mb-1">Delayed</h5>--}}
+                            {{--                                    <p class="text-muted mb-0">Neque quis est</p>--}}
+                            {{--                                </td>--}}
 
-                                <td>
-                                    <div id="radialchart-1" data-colors='["--bs-primary"]' class="apex-charts"></div>
-                                </td>
-                                <td>
-                                    <p class="text-muted mb-1">Books</p>
-                                    <h5 class="mb-0">10 %</h5>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <h5 class="font-size-14 mb-1">Returned</h5>
-                                    <p class="text-muted mb-0">Quis autem iure</p>
-                                </td>
-
-                                <td>
-                                    <div id="radialchart-2" data-colors='["--bs-success"]' class="apex-charts"></div>
-                                </td>
-                                <td>
-                                    <p class="text-muted mb-1">Books</p>
-                                    <h5 class="mb-0">72 %</h5>
-                                </td>
-                            </tr>
+                            {{--                                <td>--}}
+                            {{--                                    <div id="radialchart-1" data-colors='["--bs-primary"]' class="apex-charts"></div>--}}
+                            {{--                                </td>--}}
+                            {{--                                <td>--}}
+                            {{--                                    <p class="text-muted mb-1">Books</p>--}}
+                            {{--                                    <h5 class="mb-0">10 %</h5>--}}
+                            {{--                                </td>--}}
+                            {{--                            </tr>--}}
                             <tr>
                                 <td>
                                     <h5 class="font-size-14 mb-1">Losted</h5>
@@ -110,23 +96,51 @@
                                 </td>
                                 <td>
                                     <p class="text-muted mb-1">Books</p>
-                                    <h5 class="mb-0">54 %</h5>
+                                    <h5 class="mb-0">{{ $bookStatistics['lostBookCal'] }} %</h5>
                                 </td>
                             </tr>
-                            <tr>
-                                <td>
-                                    <h5 class="font-size-14 mb-1">Collected fine of Book</h5>
-                                    <p class="text-muted mb-0">Neque quis est</p>
-                                </td>
+                            {{--                            <tr>--}}
+                            {{--                                <td>--}}
+                            {{--                                    <h5 class="font-size-14 mb-1">Issued</h5>--}}
+                            {{--                                    <p class="text-muted mb-0">Neque quis est</p>--}}
+                            {{--                                </td>--}}
 
-                                <td>
-                                    <div id="radialchart-1" data-colors='["--bs-primary"]' class="apex-charts"></div>
-                                </td>
-                                <td>
-                                    <p class="text-muted mb-1">Books</p>
-                                    <h5 class="mb-0">50 %</h5>
-                                </td>
-                            </tr>
+                            {{--                                <td>--}}
+                            {{--                                    <div id="radialchart-1" data-colors='["--bs-primary"]' class="apex-charts"></div>--}}
+                            {{--                                </td>--}}
+                            {{--                                <td>--}}
+                            {{--                                    <p class="text-muted mb-1">Books</p>--}}
+                            {{--                                    <h5 class="mb-0">37 %</h5>--}}
+                            {{--                                </td>--}}
+                            {{--                            </tr>--}}
+                            {{--                            <tr>--}}
+                            {{--                                <td>--}}
+                            {{--                                    <h5 class="font-size-14 mb-1">Returned</h5>--}}
+                            {{--                                    <p class="text-muted mb-0">Quis autem iure</p>--}}
+                            {{--                                </td>--}}
+
+                            {{--                                <td>--}}
+                            {{--                                    <div id="radialchart-2" data-colors='["--bs-success"]' class="apex-charts"></div>--}}
+                            {{--                                </td>--}}
+                            {{--                                <td>--}}
+                            {{--                                    <p class="text-muted mb-1">Books</p>--}}
+                            {{--                                    <h5 class="mb-0">72 %</h5>--}}
+                            {{--                                </td>--}}
+                            {{--                            </tr>--}}
+                            {{--                            <tr>--}}
+                            {{--                                <td>--}}
+                            {{--                                    <h5 class="font-size-14 mb-1">Collected fine of Book</h5>--}}
+                            {{--                                    <p class="text-muted mb-0">Neque quis est</p>--}}
+                            {{--                                </td>--}}
+
+                            {{--                                <td>--}}
+                            {{--                                    <div id="radialchart-1" data-colors='["--bs-primary"]' class="apex-charts"></div>--}}
+                            {{--                                </td>--}}
+                            {{--                                <td>--}}
+                            {{--                                    <p class="text-muted mb-1">Books</p>--}}
+                            {{--                                    <h5 class="mb-0">50 %</h5>--}}
+                            {{--                                </td>--}}
+                            {{--                            </tr>--}}
                             <tr>
                                 <td>
                                     <h5 class="font-size-14 mb-1">Collected fine</h5>
@@ -138,7 +152,7 @@
                                 </td>
                                 <td>
                                     <p class="text-muted mb-1">TK:</p>
-                                    <h5 class="mb-0">37 %</h5>
+                                    <h5 class="mb-0">{{ $bookStatistics['fineCal'] }}</h5>
                                 </td>
                             </tr>
                             </tbody>
@@ -291,9 +305,9 @@
                                             <p class="text-muted">Abdullah Al Mamun</p>
                                             <h6 class="text-muted">{{ $result->department }}</h6>
 
-                                            @if( isset( $issueBook ) )
+                                            @if( isset( $bookingResult ) )
                                                 @if( isset( $bookLostResult ) )
-                                                    @foreach( $issueBook as $issueBookResult)
+                                                    @foreach( $bookLostResult as $issueBookResult)
                                                         <h6 class="text-muted">This book is Lost  by :  {{ $issueBookResult->student->name }}</h6>
                                                         <div class="row">
                                                            <div class="col-md-12">
@@ -302,8 +316,8 @@
                                                         </div>
                                                     @endforeach
                                                 @else
-                                                    @foreach( $issueBook as $issueBookResult)
-                                                        <h6 class="text-muted">This book is already have been bocked by :  {{ $issueBookResult->student->name }}</h6>
+                                                    @foreach( $bookingResult as $issueBookResult )
+                                                        <h6 class="text-muted">This book is already have been booked by :  {{ $issueBookResult->student->name }}</h6>
                                                         <div class="row">
                                                             <div class="col-md-4 mt-4">
                                                                 <button  class="btn btn-danger waves-effect waves-light btn-sm" data-bs-toggle="modal" data-bs-target=".book-return-confirm-model">Return <i class="mdi mdi-progress-check ms-1"></i></button>
@@ -409,109 +423,355 @@
     </div>
 
     <div class="row">
-       <div class="col-xl-6">
-           <div class="card">
-               <div class="card-body">
-                   <h4 class="card-title mb-4">Latest Issue History</h4>
-                   <div class="table-responsive">
-                       <table class="table align-middle table-nowrap mb-0">
-                           <thead class="table-light">
-                           <tr>
-                               <th class="align-middle">SL NO</th>
-                               <th class="align-middle">Book Code</th>
-                               <th class="align-middle">Book Name</th>
-                               <th class="align-middle">Member Name</th>
-                               <th class="align-middle">Department</th>
-                               <th class="align-middle">Return Date</th>
-                               <th class="align-middle">View Details</th>
-                           </tr>
-                           </thead>
-                           <tbody>
-                               @foreach( $latestIssue as $latestIssueResult )
-                                   <tr>
-                                       <td>
-                                            {{ $loop->iteration }}
-                                       </td>
-                                       <td>
-                                           <a href="javascript: void(0);" class="text-body fw-bold">#{{ $latestIssueResult->book->book_code }}</a>
-                                       </td>
-                                       <td>
-                                           {{ $latestIssueResult->book->name }}
-                                       </td>
-                                       <td>
-                                           {{ $latestIssueResult->student->name }}
-                                       </td>
-                                       <td>
-                                           {{ $latestIssueResult->student->department }}
-                                       </td>
-                                       <td>
-                                           <span class="badge badge-pill badge-soft-success font-size-11">{{ $latestIssueResult->return_date }}</span>
-                                       </td>
-                                       <td>
-                                           <!-- Button trigger modal -->
-                                           <button type="button" class="btn btn-primary btn-sm btn-rounded waves-effect waves-light" data-bs-toggle="modal" data-bs-target=".transaction-detailModal">
-                                               View Details
-                                           </button>
-                                       </td>
-                                   </tr>
-                               @endforeach
-                           </tbody>
-                       </table>
-                   </div>
-                   <!-- end table-responsive -->
-               </div>
-           </div>
-       </div>
-        <div class="col-xl-6">
-            <div class="card">
-                <div class="card-body">
-                    <h4 class="card-title mb-4">Latest Return History</h4>
-                    <div class="table-responsive">
-                        <table class="table align-middle table-nowrap mb-0">
-                            <thead class="table-light">
-                            <tr>
-                                <th class="align-middle">SL NO</th>
-                                <th class="align-middle">Book Code</th>
-                                <th class="align-middle">Book Name</th>
-                                <th class="align-middle">Member Name</th>
-                                <th class="align-middle">Department</th>
-                                <th class="align-middle">Issue Id</th>
-                                <th class="align-middle">View Details</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                                @foreach( $latestReturn as $latestReturnResult )
-                                <tr>
-                                    <td>
-                                        {{ $loop->iteration }}
-                                    </td>
-                                    <td>
-                                        <a href="javascript: void(0);" class="text-body fw-bold">#{{ $latestReturnResult->book->book_code }}</a>
-                                    </td>
-                                    <td>
-                                        {{ $latestReturnResult->book->name }}
-                                    </td>
-                                    <td>
-                                        {{ $latestReturnResult->student->name }}
-                                    </td>
-                                    <td>
-                                        {{ $latestReturnResult->student->department }}
-                                    </td>
-                                    <td>
-                                        <span class="badge badge-pill badge-soft-success font-size-11">{{ $latestReturnResult->book_issue_id }}</span>
-                                    </td>
-                                    <td>
-                                        <!-- Button trigger modal -->
-                                        <button type="button" class="btn btn-primary btn-sm btn-rounded waves-effect waves-light" data-bs-toggle="modal" data-bs-target=".transaction-detailModal">
-                                            View Details
-                                        </button>
-                                    </td>
-                                </tr>
-                            @endforeach
-                            </tbody>
-                        </table>
+        <div class="col-xl-12">
+            <nav>
+                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                    <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Issue</button>
+                    <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Return</button>
+                </div>
+            </nav>
+            <div class="tab-content" id="nav-tabContent">
+                <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="card-title mb-4">Latest Issue History</h4>
+                                    <div class="table-responsive">
+                                        <table class="table align-middle table-nowrap mb-0">
+                                            <thead class="table-light">
+                                            <tr>
+                                                <th class="align-middle">SL NO</th>
+                                                <th class="align-middle">Book Code</th>
+                                                <th class="align-middle">Book Name</th>
+                                                <th class="align-middle">Member Name</th>
+                                                <th class="align-middle">Department</th>
+                                                <th class="align-middle">Return Date</th>
+                                                <th class="align-middle">View Details</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            @foreach( $latestIssue as $latestIssueResult )
+                                                <tr>
+                                                    <td>
+                                                        {{ $loop->iteration }}
+                                                    </td>
+                                                    <td>
+                                                        <a href="javascript: void(0);" class="text-body fw-bold">#{{ $latestIssueResult->book->book_code }}</a>
+                                                    </td>
+                                                    <td>
+                                                        {{ $latestIssueResult->book->name }}
+                                                    </td>
+                                                    <td>
+                                                        {{ $latestIssueResult->student->name }}
+                                                    </td>
+                                                    <td>
+                                                        {{ $latestIssueResult->student->department }}
+                                                    </td>
+                                                    <td>
+                                                        <span class="badge badge-pill badge-soft-success font-size-11">{{ $latestIssueResult->return_date }}</span>
+                                                    </td>
+                                                    <td>
+                                                        <!-- Button trigger modal -->
+                                                        <button type="button" class="btn btn-primary btn-sm btn-rounded waves-effect waves-light" data-bs-toggle="modal" data-bs-target=".book-issue-detail-model-{{ $latestIssueResult->id }}">
+                                                            View Details
+                                                        </button>
+
+                                                        <!-- Issue Details Modal -->
+                                                        <div class="modal fade book-issue-detail-model-{{ $latestIssueResult->id }}" tabindex="-1" role="dialog" aria-labelledby="book-issue-detail-model-{{ $latestIssueResult->id }}" aria-hidden="true">
+                                                            <div class="modal-dialog modal-dialog-scrollable" role="document" style="max-width: 900px">
+                                                                <div class="modal-content bg-secondary bg-soft">
+                                                                    <div class="modal-header">
+                                                                        <h5 class="modal-title text-white" id="book-issue-detail-model-{{ $latestIssueResult->id }}">Return Details</h5>
+                                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                    </div>
+                                                                    <div class="modal-body ">
+                                                                        <div class="container-fluid">
+                                                                            <div class="row">
+                                                                                <div class="card bg-secondary bg-soft">
+                                                                                    <div class="row g-2">
+                                                                                        <div class="col-md-4">
+
+                                                                                            <div class="card bg-light">
+                                                                                                @if( $latestIssueResult->book->image )
+                                                                                                    <img src="{{ asset( $latestIssueResult->book->image ) }}" alt="" class="card-img-top p-3  border-2 border-black rounded-circle"/>
+                                                                                                @else
+                                                                                                    <img src="https://cdn.icon-icons.com/icons2/1378/PNG/512/avatardefault_92824.png" alt="" class="img-fluid rounded-start"/>
+                                                                                                @endif
+                                                                                                <div class="card-header text-center text-capitalize">{{ $latestIssueResult->student->name }}</div>
+                                                                                                <div class="card-body">
+                                                                                                    <table class="table table-bordered table-hover dt-responsive nowrap w-100">
+                                                                                                        <tbody>
+                                                                                                        <tr>
+                                                                                                            <th>Id :</th>
+                                                                                                            <td>{{ $latestIssueResult->student->roll }}</td>
+                                                                                                        </tr>
+                                                                                                        <tr>
+                                                                                                            <th>Id :</th>
+                                                                                                            <td>{{ $latestIssueResult->student->roll }}</td>
+                                                                                                        </tr>
+                                                                                                        <tr>
+                                                                                                            <th>Id :</th>
+                                                                                                            <td>{{ $latestIssueResult->student->roll }}</td>
+                                                                                                        </tr>
+                                                                                                        <tr>
+                                                                                                            <th>Id :</th>
+                                                                                                            <td>{{ $latestIssueResult->student->roll }}</td>
+                                                                                                        </tr>
+                                                                                                        </tbody>
+                                                                                                    </table>
+                                                                                                </div>
+                                                                                            </div>
+
+                                                                                        </div>
+                                                                                        <div class="col-md-8">
+                                                                                            <div class="card-body pt-0">
+
+                                                                                                <div class="card card-body mb-4 bg-light">
+                                                                                                    <div class="card-title py-2 "><i class="bx bx-windows"></i>  General Information</div>
+                                                                                                    <table  class="table table-bordered table-hover dt-responsive nowrap w-100">
+                                                                                                        <tbody>
+                                                                                                        <tr>
+                                                                                                            <th>Name</th>
+                                                                                                            <th> : </th>
+                                                                                                            <td>{{ $latestIssueResult->student->name }}</td>
+                                                                                                        </tr>
+                                                                                                        <tr>
+                                                                                                            <th>Name</th>
+                                                                                                            <th> : </th>
+                                                                                                            <td>{{ $latestIssueResult->student->name }}</td>
+                                                                                                        </tr>
+                                                                                                        <tr>
+                                                                                                            <th>Name</th>
+                                                                                                            <th> : </th>
+                                                                                                            <td>{{ $latestIssueResult->student->name }}</td>
+                                                                                                        </tr>
+                                                                                                        <tr>
+                                                                                                            <th>Name</th>
+                                                                                                            <th> : </th>
+                                                                                                            <td>{{ $latestIssueResult->student->name }}</td>
+                                                                                                        </tr>
+                                                                                                        <tr>
+                                                                                                            <th>Phone Number</th>
+                                                                                                            <th> : </th>
+                                                                                                            <td>
+                                                                                                                <table class="table table-responsive-md">
+                                                                                                                    <tbody>
+                                                                                                                    @foreach( $latestIssueResult->student->student_numbers as $phoneNumber )
+                                                                                                                        <tr>
+                                                                                                                            <th>+88 {{ $phoneNumber->phone }}</th>
+                                                                                                                        </tr>
+                                                                                                                    @endforeach
+                                                                                                                    </tbody>
+                                                                                                                </table>
+                                                                                                            </td>
+                                                                                                        </tr>
+                                                                                                        </tbody>
+                                                                                                    </table>
+                                                                                                </div>
+
+                                                                                                <div class="card card-body bg-light">
+                                                                                                    <div class="card-title py-2"><i class="bx bx-window"></i> Other Information</div>
+                                                                                                    <div class="container-fluid" style="overflow: auto">
+                                                                                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab animi harum laborum laudantium sequi. Dolore ducimus ex nesciunt obcaecati temporibus.
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="modal-footer">
+                                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!-- end modal -->
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!-- end table-responsive -->
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <!-- end table-responsive -->
+                </div>
+                <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="card-title mb-4">Latest Return History</h4>
+                                    <div class="table-responsive">
+                                        <table class="table align-middle table-nowrap mb-0">
+                                            <thead class="table-light">
+                                            <tr>
+                                                <th class="align-middle">SL NO</th>
+                                                <th class="align-middle">Book Code</th>
+                                                <th class="align-middle">Book Name</th>
+                                                <th class="align-middle">Member Name</th>
+                                                <th class="align-middle">Department</th>
+                                                <th class="align-middle">Issue Id</th>
+                                                <th class="align-middle">View Details</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            @foreach( $latestReturn as $latestReturnResult )
+                                                <tr>
+                                                    <td>
+                                                        {{ $loop->iteration }}
+                                                    </td>
+                                                    <td>
+                                                        <a href="javascript: void(0);" class="text-body fw-bold">#{{ $latestReturnResult->book->book_code }}</a>
+                                                    </td>
+                                                    <td>
+                                                        {{ $latestReturnResult->book->name }}
+                                                    </td>
+                                                    <td>
+                                                        {{ $latestReturnResult->student->name }}
+                                                    </td>
+                                                    <td>
+                                                        {{ $latestReturnResult->student->department }}
+                                                    </td>
+                                                    <td>
+                                                        <span class="badge badge-pill badge-soft-success font-size-11">{{ $latestReturnResult->book_issue_id }}</span>
+                                                    </td>
+                                                    <td>
+                                                        <!-- Button trigger modal -->
+                                                        <button type="button" class="btn btn-primary btn-sm btn-rounded waves-effect waves-light" data-bs-toggle="modal" data-bs-target=".book-return-detail-model-{{ $latestReturnResult->id }}">
+                                                            View Details
+                                                        </button>
+
+                                                        <!-- Return Details Modal -->
+                                                        <div class="modal fade book-return-detail-model-{{ $latestReturnResult->id }}" tabindex="-1" role="dialog" aria-labelledby="book-return-detail-model-{{ $latestReturnResult->id }}" aria-hidden="true">
+                                                            <div class="modal-dialog modal-dialog-scrollable" role="document" style="max-width: 900px">
+                                                                <div class="modal-content bg-secondary bg-soft">
+                                                                    <div class="modal-header">
+                                                                        <h5 class="modal-title text-white" id="book-return-detail-model-{{ $latestReturnResult->id }}">Return Details</h5>
+                                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                    </div>
+                                                                    <div class="modal-body ">
+                                                                        <div class="container-fluid">
+                                                                            <div class="row">
+                                                                                <div class="card bg-secondary bg-soft">
+                                                                                    <div class="row g-2">
+                                                                                        <div class="col-md-4">
+
+                                                                                            <div class="card bg-light">
+                                                                                                @if( $latestReturnResult->book->image )
+                                                                                                    <img src="{{ asset( $latestReturnResult->book->image ) }}" alt="" class="card-img-top p-3  border-2 border-black rounded-circle"/>
+                                                                                                @else
+                                                                                                    <img src="https://cdn.icon-icons.com/icons2/1378/PNG/512/avatardefault_92824.png" alt="" class="img-fluid rounded-start"/>
+                                                                                                @endif
+                                                                                                <div class="card-header text-center text-capitalize">{{ $latestReturnResult->student->name }}</div>
+                                                                                                <div class="card-body">
+                                                                                                    <table class="table table-bordered table-hover dt-responsive nowrap w-100">
+                                                                                                        <tbody>
+                                                                                                        <tr>
+                                                                                                            <th>Id :</th>
+                                                                                                            <td>{{ $latestReturnResult->student->roll }}</td>
+                                                                                                        </tr>
+                                                                                                        <tr>
+                                                                                                            <th>Id :</th>
+                                                                                                            <td>{{ $latestReturnResult->student->roll }}</td>
+                                                                                                        </tr>
+                                                                                                        <tr>
+                                                                                                            <th>Id :</th>
+                                                                                                            <td>{{ $latestReturnResult->student->roll }}</td>
+                                                                                                        </tr>
+                                                                                                        <tr>
+                                                                                                            <th>Id :</th>
+                                                                                                            <td>{{ $latestReturnResult->student->roll }}</td>
+                                                                                                        </tr>
+                                                                                                        </tbody>
+                                                                                                    </table>
+                                                                                                </div>
+                                                                                            </div>
+
+                                                                                        </div>
+                                                                                        <div class="col-md-8">
+                                                                                            <div class="card-body pt-0">
+
+                                                                                                <div class="card card-body mb-4 bg-light">
+                                                                                                    <div class="card-title py-2 "><i class="bx bx-windows"></i>  General Information</div>
+                                                                                                    <table  class="table table-bordered table-hover dt-responsive nowrap w-100">
+                                                                                                        <tbody>
+                                                                                                        <tr>
+                                                                                                            <th>Name</th>
+                                                                                                            <th> : </th>
+                                                                                                            <td>{{ $latestReturnResult->student->name }}</td>
+                                                                                                        </tr>
+                                                                                                        <tr>
+                                                                                                            <th>Name</th>
+                                                                                                            <th> : </th>
+                                                                                                            <td>{{ $latestReturnResult->student->name }}</td>
+                                                                                                        </tr>
+                                                                                                        <tr>
+                                                                                                            <th>Name</th>
+                                                                                                            <th> : </th>
+                                                                                                            <td>{{ $latestReturnResult->student->name }}</td>
+                                                                                                        </tr>
+                                                                                                        <tr>
+                                                                                                            <th>Name</th>
+                                                                                                            <th> : </th>
+                                                                                                            <td>{{ $latestReturnResult->student->name }}</td>
+                                                                                                        </tr>
+                                                                                                        <tr>
+                                                                                                            <th>Phone Number</th>
+                                                                                                            <th> : </th>
+                                                                                                            <td>
+                                                                                                                <table class="table table-responsive-md">
+                                                                                                                    <tbody>
+                                                                                                                    @foreach( $latestReturnResult->student->student_numbers as $phoneNumber )
+                                                                                                                        <tr>
+                                                                                                                            <th>+88 {{ $phoneNumber->phone }}</th>
+                                                                                                                        </tr>
+                                                                                                                    @endforeach
+                                                                                                                    </tbody>
+                                                                                                                </table>
+                                                                                                            </td>
+                                                                                                        </tr>
+                                                                                                        </tbody>
+                                                                                                    </table>
+                                                                                                </div>
+
+                                                                                                <div class="card card-body bg-light">
+                                                                                                    <div class="card-title py-2"><i class="bx bx-window"></i> Other Information</div>
+                                                                                                    <div class="container-fluid" style="overflow: auto">
+                                                                                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab animi harum laborum laudantium sequi. Dolore ducimus ex nesciunt obcaecati temporibus.
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="modal-footer">
+                                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!-- end modal -->
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!-- end table-responsive -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

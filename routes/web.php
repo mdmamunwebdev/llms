@@ -50,8 +50,8 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified'])-
     Route::get('book/search', [BookIsssueController::class, "bookSearch"])->name('book.search');
     Route::get('member/search', [BookIsssueController::class, "memberSearch"])->name('member.search');
     Route::get('book/issue-confirm', [BookIsssueController::class, "issueConfirm"])->name('book.issue-confirm');
-
     Route::get('book/return', [BookReturnController::class, "index"])->name('book.return');
     Route::get('book/lost', [BookLostController::class, "index"])->name('book.lost');
 
+    Route::get('book/issue/return/analysis', [BookIsssueController::class, "bookAnalysis"])->name('book.issue.return.analysis');
 });
