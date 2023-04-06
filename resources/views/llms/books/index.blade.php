@@ -4,17 +4,17 @@
     Users | Books
 @endsection
 
-@section("page-title")
-    Manage Books
-@endsection
+{{--@section("page-title")--}}
+{{--    Manage Books--}}
+{{--@endsection--}}
 
-@section("menues")
-    Users / Books /
-@endsection
+{{--@section("menues")--}}
+{{--    Users / Books /--}}
+{{--@endsection--}}
 
-@section("sub-menu")
-    Manage Books
-@endsection
+{{--@section("sub-menu")--}}
+{{--    Manage Books--}}
+{{--@endsection--}}
 
 @section("main-content")
 
@@ -26,37 +26,6 @@
                         <h5 class="mb-0 card-title flex-grow-1">Books Lists</h5>
                         <div class="flex-shrink-0">
                             <a href="{{ route('add.books') }}" class="btn btn-primary">Add New Book</a>
-                            <a href="#" class="btn btn-light"><i class="mdi mdi-refresh"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-body border-bottom">
-                    <div class="row g-3">
-                        <div class="col-xxl-4 col-lg-6">
-                            <input type="search" class="form-control" id="searchInput" placeholder="Search for ...">
-                        </div>
-                        <div class="col-xxl-2 col-lg-6">
-                            <select class="form-control select2">
-                                <option>Status</option>
-                                <option value="Active">Active</option>
-                                <option value="New">New</option>
-                                <option value="Close">Close</option>
-                            </select>
-                        </div>
-                        <div class="col-xxl-2 col-lg-4">
-                            <select class="form-control select2">
-                                <option>Select Type</option>
-                                <option value="1">Full Time</option>
-                                <option value="2">Part Time</option>
-                            </select>
-                        </div>
-                        <div class="col-xxl-2 col-lg-4">
-                            <div id="datepicker1">
-                                <input type="text" class="form-control" placeholder="Select date" data-date-format="dd M, yyyy" data-date-autoclose="true" data-date-container='#datepicker1' data-provide="datepicker">
-                            </div><!-- input-group -->
-                        </div>
-                        <div class="col-xxl-2 col-lg-4">
-                            <button type="button" class="btn btn-soft-secondary w-100"><i class="mdi mdi-filter-outline align-middle"></i> Filter</button>
                         </div>
                     </div>
                 </div>
@@ -70,7 +39,6 @@
                             <th>SL NO</th>
                             <th>Image</th>
                             <th>Name</th>
-                            <th>Author</th>
                             <th>Code</th>
                             <th>Dept</th>
                             <th>Status</th>
@@ -93,7 +61,6 @@
                                     </div>
                                 </td>
                                 <td>{{ $book->name }}</td>
-                                <td>{{ $book->author }}</td>
                                 <td>{{ $book->book_code }}</td>
                                 <td>{{ $book->department }}</td>
                                 <td><span class="badge  {{ $book->status == 1 ? 'bg-success':'bg-danger' }}">{{ $book->status == 1 ? 'Active':'Deactive' }}</span></td>
@@ -108,12 +75,12 @@
                                         <li data-bs-toggle="tooltip" data-bs-placement="top" title="Edit">
                                             <a href="{{ route("update.books", $book->id) }}" class="btn btn-sm btn-soft-info"><i class="mdi mdi-pencil-outline"></i></a>
                                         </li>
-                                        <li data-bs-toggle="tooltip" data-bs-placement="top" title="Delete">
-                                            <a href="#" data-bs-toggle="modal" class="btn btn-sm btn-soft-danger" onclick="event.preventDefault(); document.getElementById('bookDelete').submit()"><i class="mdi mdi-delete-outline"></i></a>
-                                            <form action="{{ route("delete.books", $book->id) }}" method="post" id="bookDelete">
-                                                @csrf
-                                            </form>
-                                        </li>
+{{--                                        <li data-bs-toggle="tooltip" data-bs-placement="top" title="Delete">--}}
+{{--                                            <a href="#" data-bs-toggle="modal" class="btn btn-sm btn-soft-danger" onclick="event.preventDefault(); document.getElementById('bookDelete').submit()"><i class="mdi mdi-delete-outline"></i></a>--}}
+{{--                                            <form action="{{ route("delete.books", $book->id) }}" method="post" id="bookDelete">--}}
+{{--                                                @csrf--}}
+{{--                                            </form>--}}
+{{--                                        </li>--}}
                                     </ul>
 
                                     <!-- Student Details Modal -->
@@ -142,20 +109,21 @@
                                                                                 <table class="table table-bordered table-hover dt-responsive nowrap w-100">
                                                                                     <tbody>
                                                                                     <tr>
-                                                                                        <th>Id :</th>
+                                                                                        <th>Book Code</th>
+                                                                                        <th> : </th>
                                                                                         <td>{{ $book->book_code }}</td>
                                                                                     </tr>
                                                                                     <tr>
-                                                                                        <th>Id :</th>
-                                                                                        <td>{{ $book->book_code }}</td>
+                                                                                        <th>Department</th>
+                                                                                        <th> : </th>
+                                                                                        <td>{{ $book->department }}</td>
                                                                                     </tr>
                                                                                     <tr>
-                                                                                        <th>Id :</th>
-                                                                                        <td>{{ $book->book_code }}</td>
-                                                                                    </tr>
-                                                                                    <tr>
-                                                                                        <th>Id :</th>
-                                                                                        <td>{{ $book->book_code }}</td>
+                                                                                        <th>Status</th>
+                                                                                        <th> : </th>
+                                                                                        <td>
+                                                                                            <span class="badge  {{ $book->status == 1 ? 'bg-success':'bg-danger' }}">{{ $book->status == 1 ? 'Active':'Deactive' }}</span>
+                                                                                        </td>
                                                                                     </tr>
                                                                                     </tbody>
                                                                                 </table>
@@ -165,41 +133,79 @@
                                                                     </div>
                                                                     <div class="col-md-8">
                                                                         <div class="card-body pt-0">
-
                                                                             <div class="card card-body mb-4 bg-light">
                                                                                 <div class="card-title py-2 "><i class="bx bx-windows"></i>  General Information</div>
                                                                                 <table  class="table table-bordered table-hover dt-responsive nowrap w-100">
                                                                                     <tbody>
                                                                                     <tr>
-                                                                                        <th>Name</th>
+                                                                                        <th>Authors</th>
                                                                                         <th> : </th>
-                                                                                        <td>{{ $book->name }}</td>
+                                                                                        <td>
+                                                                                            <table class="table table-hover table-bordered">
+                                                                                                <tbody>
+                                                                                                @foreach( $book->authors as $author)
+                                                                                                    <tr>
+                                                                                                        <td class="text-capitalize">{{ $author->name }}</td>
+                                                                                                    </tr>
+                                                                                                @endforeach
+                                                                                                </tbody>
+                                                                                            </table>
+                                                                                        </td>
                                                                                     </tr>
                                                                                     <tr>
-                                                                                        <th>Name</th>
+                                                                                        <th>Book Location</th>
                                                                                         <th> : </th>
-                                                                                        <td>{{ $book->name }}</td>
-                                                                                    </tr>
-                                                                                    <tr>
-                                                                                        <th>Name</th>
-                                                                                        <th> : </th>
-                                                                                        <td>{{ $book->name }}</td>
-                                                                                    </tr>
-                                                                                    <tr>
-                                                                                        <th>Name</th>
-                                                                                        <th> : </th>
-                                                                                        <td>{{ $book->name }}</td>
+                                                                                        <td>{{ $book->location }}</td>
                                                                                     </tr>
                                                                                     </tbody>
                                                                                 </table>
                                                                             </div>
 
-                                                                            <div class="card card-body bg-light">
-                                                                                <div class="card-title py-2"><i class="bx bx-window"></i> Other Information</div>
-                                                                                <div class="container-fluid" style="overflow: auto">
-                                                                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab animi harum laborum laudantium sequi. Dolore ducimus ex nesciunt obcaecati temporibus.
-                                                                                </div>
+                                                                            <div class="card card-body mb-4 bg-light">
+                                                                                <div class="card-title py-2 "><i class="bx bx-windows"></i>  Book History</div>
+                                                                                <table  class="table table-bordered table-hover dt-responsive nowrap w-100">
+                                                                                    <tbody>
+                                                                                    <tr>
+                                                                                        <th>Booking Status :</th>
+                                                                                        <td>
+                                                                                            @if( $book->booking )
+                                                                                                <table class="table table-bordered table-hover">
+                                                                                                    <tbody>
+                                                                                                        <tr>
+                                                                                                            <td class="text-capitalize bg-primary bg-soft">This book is Booked by : {{ $book->booking->student->name }}</td>
+                                                                                                        </tr>
+                                                                                                        <tr>
+                                                                                                            <td class="text-capitalize bg-primary bg-soft">This book Return Date : {{ $book->booking->return_date }}</td>
+                                                                                                        </tr>
+                                                                                                    </tbody>
+                                                                                                </table>
+                                                                                            @else
+                                                                                                @if( $book->lost )
+                                                                                                    <div class="py-3 px-2 fw-bold text-capitalize bg-danger bg-soft">This book is Losted by : {{ $book->lost->student->name }}</div>
+                                                                                                @else
+                                                                                                    <div class="py-3 px-2 fw-bold text-capitalize bg-success bg-soft">This book is Available !</div>
+                                                                                                @endif
+                                                                                            @endif
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <th>Issue Number :</th>
+                                                                                        <td>{{ count($book->issues) }}</td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <th>Return number :</th>
+                                                                                        <td>{{ count($book->return) }}</td>
+                                                                                    </tr>
+                                                                                    </tbody>
+                                                                                </table>
                                                                             </div>
+
+{{--                                                                            <div class="card card-body bg-light">--}}
+{{--                                                                                <div class="card-title py-2"><i class="bx bx-window"></i> Other Information</div>--}}
+{{--                                                                                <div class="container-fluid" style="overflow: auto">--}}
+{{--                                                                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab animi harum laborum laudantium sequi. Dolore ducimus ex nesciunt obcaecati temporibus.--}}
+{{--                                                                                </div>--}}
+{{--                                                                            </div>--}}
                                                                         </div>
                                                                     </div>
                                                                 </div>

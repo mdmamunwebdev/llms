@@ -16,7 +16,6 @@ class BookIssue extends Model
         self::$book_issue = new BookIssue();
         self::$book_issue->book_id     = $request->book_id;
         self::$book_issue->student_id  = $request->student_id;
-        self::$book_issue->return_date = $request->return_date;
         self::$book_issue->save();
         return self::$book_issue;
     }

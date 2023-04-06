@@ -7,6 +7,7 @@ use App\Http\Controllers\BookController;
 use App\Http\Controllers\BookIsssueController;
 use App\Http\Controllers\BookReturnController;
 use App\Http\Controllers\BookLostController;
+use App\Http\Controllers\AppSettingsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,6 +46,7 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified'])-
     Route::post('/update/books/{id}', [BookController::class, "editBook"])->name("edit.books");
     Route::post('/delete/books/{id}', [BookController::class, "deleteBook"])->name("delete.books");
     Route::get('/status/books/{id}', [BookController::class, "statusBook"])->name("status.books");
+    Route::get('/delete/books/author/{author_id}', [BookController::class, "bookAuthorDelete"])->name("delete.books.author");
 
     Route::get('book/issue', [BookIsssueController::class, "index"])->name('book.issue');
     Route::get('book/search', [BookIsssueController::class, "bookSearch"])->name('book.search');
@@ -52,6 +54,9 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified'])-
     Route::get('book/issue-confirm', [BookIsssueController::class, "issueConfirm"])->name('book.issue-confirm');
     Route::get('book/return', [BookReturnController::class, "index"])->name('book.return');
     Route::get('book/lost', [BookLostController::class, "index"])->name('book.lost');
+    Route::get('book/issue/return/analysis/', [BookIsssueController::class, "bookAnalysisByDynamic"])->name('book.issue.return.analysis');
 
-    Route::get('book/issue/return/analysis', [BookIsssueController::class, "bookAnalysis"])->name('book.issue.return.analysis');
+    Route::get('settings', [AppSettingsController::class, "index"])->name("settings");
+    Route::get('settings/admin-options', [AppSettingsController::class, "adminOptions"])->name("settings.admin-options");
+    Route::get('settings/app-options', [AppSettingsController::class, "appOptions"])->name("settings.app-options");
 });

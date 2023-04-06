@@ -14,6 +14,7 @@ class Booking extends Model
         self::$bookBooking->book_issue_id = $issue_id;
         self::$bookBooking->book_id       = $request->book_id;
         self::$bookBooking->student_id    = $request->student_id;
+        self::$bookBooking->return_date   = $request->return_date;
         self::$bookBooking->save();
     }
 

@@ -95,10 +95,10 @@ class StudentController extends Controller
         //
     }
 
-    function deleteStudent($id) {
-        Student::stdDelete($id);
-        return redirect("/manage/students")->with('stdMessage', 'WOW !! This Student is deleted with sucessfully finshied !!');
-    }
+//    function deleteStudent($id) {
+//        Student::stdDelete($id);
+//        return redirect("/manage/students")->with('stdMessage', 'WOW !! This Student is deleted with sucessfully finshied !!');
+//    }
 
     function deleteStudentPhoneNum($phoneId) {
         StudentNumber::stdPhoneNumDelete($phoneId);

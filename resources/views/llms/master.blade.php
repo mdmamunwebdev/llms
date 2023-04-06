@@ -36,20 +36,19 @@
     <link rel="stylesheet" href="{{ asset("/") }}llms/assets/css/llms.css">
 
 </head>
-<body data-sidebar="dark" data-layout-mode="light">
+<body data-sidebar="dark" data-layout-mode="dark">
 
     <!-- <body data-layout="horizontal" data-topbar="dark"> -->
 
         <!-- Begin page -->
         <div id="layout-wrapper">
 
-
             <header id="page-topbar">
                 <div class="navbar-header">
                     <div class="d-flex">
                         <!-- LOGO -->
                         <div class="navbar-brand-box">
-                            <a href="index.html" class="logo logo-dark">
+                            <a href="#" class="logo logo-dark">
                                 <span class="logo-sm">
                                     <img src="{{ asset("/") }}llms/assets/images/logo.svg" alt="" height="22">
                                 </span>
@@ -58,7 +57,7 @@
                                 </span>
                             </a>
 
-                            <a href="index.html" class="logo logo-light">
+                            <a href="#" class="logo logo-light">
                                 <span class="logo-sm">
                                     <img src="{{ asset("/") }}llms/assets/images/logo-light.svg" alt="" height="22">
                                 </span>
@@ -71,170 +70,11 @@
                         <button type="button" class="btn btn-sm px-3 font-size-16 header-item waves-effect" id="vertical-menu-btn">
                             <i class="fa fa-fw fa-bars"></i>
                         </button>
-
-                        <!-- App Search-->
-                        <form class="app-search d-none d-lg-block">
-                            <div class="position-relative">
-                                <input type="text" class="form-control" placeholder="Search...">
-                                <span class="bx bx-search-alt"></span>
-                            </div>
-                        </form>
-
-                        <div class="dropdown dropdown-mega d-none d-lg-block ms-2">
-                            <button type="button" class="btn header-item waves-effect" data-bs-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
-                                <span key="t-megamenu">Mega Menu</span>
-                                <i class="mdi mdi-chevron-down"></i>
-                            </button>
-                            <div class="dropdown-menu dropdown-megamenu">
-                                <div class="row">
-                                    <div class="col-sm-8">
-
-                                        <div class="row">
-                                            <div class="col-md-4">
-                                                <h5 class="font-size-14" key="t-ui-components">UI Components</h5>
-                                                <ul class="list-unstyled megamenu-list">
-                                                    <li>
-                                                        <a href="javascript:void(0);" key="t-lightbox">Lightbox</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="javascript:void(0);" key="t-range-slider">Range Slider</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="javascript:void(0);" key="t-sweet-alert">Sweet Alert</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="javascript:void(0);" key="t-rating">Rating</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="javascript:void(0);" key="t-forms">Forms</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="javascript:void(0);" key="t-tables">Tables</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="javascript:void(0);" key="t-charts">Charts</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-
-                                            <div class="col-md-4">
-                                                <h5 class="font-size-14" key="t-applications">Applications</h5>
-                                                <ul class="list-unstyled megamenu-list">
-                                                    <li>
-                                                        <a href="javascript:void(0);" key="t-ecommerce">Ecommerce</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="javascript:void(0);" key="t-calendar">Calendar</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="javascript:void(0);" key="t-email">Email</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="javascript:void(0);" key="t-projects">Projects</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="javascript:void(0);" key="t-tasks">Tasks</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="javascript:void(0);" key="t-contacts">Contacts</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-
-                                            <div class="col-md-4">
-                                                <h5 class="font-size-14" key="t-extra-pages">Extra Pages</h5>
-                                                <ul class="list-unstyled megamenu-list">
-                                                    <li>
-                                                        <a href="javascript:void(0);" key="t-light-sidebar">Light Sidebar</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="javascript:void(0);" key="t-compact-sidebar">Compact Sidebar</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="javascript:void(0);" key="t-horizontal">Horizontal layout</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="javascript:void(0);" key="t-maintenance">Maintenance</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="javascript:void(0);" key="t-coming-soon">Coming Soon</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="javascript:void(0);" key="t-timeline">Timeline</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="javascript:void(0);" key="t-faqs">FAQs</a>
-                                                    </li>
-
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <div class="row">
-                                            <div class="col-sm-6">
-                                                <h5 class="font-size-14" key="t-ui-components">UI Components</h5>
-                                                <ul class="list-unstyled megamenu-list">
-                                                    <li>
-                                                        <a href="javascript:void(0);" key="t-lightbox">Lightbox</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="javascript:void(0);" key="t-range-slider">Range Slider</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="javascript:void(0);" key="t-sweet-alert">Sweet Alert</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="javascript:void(0);" key="t-rating">Rating</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="javascript:void(0);" key="t-forms">Forms</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="javascript:void(0);" key="t-tables">Tables</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="javascript:void(0);" key="t-charts">Charts</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-
-                                            <div class="col-sm-5">
-                                                <div>
-                                                    <img src="{{ asset("/") }}llms/assets/images/megamenu-img.png" alt="" class="img-fluid mx-auto d-block">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
                     </div>
 
                     <div class="d-flex">
 
-                        <div class="dropdown d-inline-block d-lg-none ms-2">
-                            <button type="button" class="btn header-item noti-icon waves-effect" id="page-header-search-dropdown"
-                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="mdi mdi-magnify"></i>
-                            </button>
-                            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0"
-                                aria-labelledby="page-header-search-dropdown">
-
-                                <form class="p-3">
-                                    <div class="form-group m-0">
-                                        <div class="input-group">
-                                            <input type="text" class="form-control" placeholder="Search ..." aria-label="Recipient's username">
-                                            <div class="input-group-append">
-                                                <button class="btn btn-primary" type="submit"><i class="mdi mdi-magnify"></i></button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-
+                        <!-- App Language-->
                         <div class="dropdown d-inline-block">
                             <button type="button" class="btn header-item waves-effect"
                             data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -268,64 +108,14 @@
                             </div>
                         </div>
 
-                        <div class="dropdown d-none d-lg-inline-block ms-1">
-                            <button type="button" class="btn header-item noti-icon waves-effect"
-                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="bx bx-customize"></i>
-                            </button>
-                            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
-                                <div class="px-lg-2">
-                                    <div class="row g-0">
-                                        <div class="col">
-                                            <a class="dropdown-icon-item" href="#">
-                                                <img src="{{ asset("/") }}llms/assets/images/brands/github.png" alt="Github">
-                                                <span>GitHub</span>
-                                            </a>
-                                        </div>
-                                        <div class="col">
-                                            <a class="dropdown-icon-item" href="#">
-                                                <img src="{{ asset("/") }}llms/assets/images/brands/bitbucket.png" alt="bitbucket">
-                                                <span>Bitbucket</span>
-                                            </a>
-                                        </div>
-                                        <div class="col">
-                                            <a class="dropdown-icon-item" href="#">
-                                                <img src="{{ asset("/") }}llms/assets/images/brands/dribbble.png" alt="dribbble">
-                                                <span>Dribbble</span>
-                                            </a>
-                                        </div>
-                                    </div>
-
-                                    <div class="row g-0">
-                                        <div class="col">
-                                            <a class="dropdown-icon-item" href="#">
-                                                <img src="{{ asset("/") }}llms/assets/images/brands/dropbox.png" alt="dropbox">
-                                                <span>Dropbox</span>
-                                            </a>
-                                        </div>
-                                        <div class="col">
-                                            <a class="dropdown-icon-item" href="#">
-                                                <img src="{{ asset("/") }}llms/assets/images/brands/mail_chimp.png" alt="mail_chimp">
-                                                <span>Mail Chimp</span>
-                                            </a>
-                                        </div>
-                                        <div class="col">
-                                            <a class="dropdown-icon-item" href="#">
-                                                <img src="{{ asset("/") }}llms/assets/images/brands/slack.png" alt="slack">
-                                                <span>Slack</span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
+                        <!-- App FullScreen-->
                         <div class="dropdown d-none d-lg-inline-block ms-1">
                             <button type="button" class="btn header-item noti-icon waves-effect" data-bs-toggle="fullscreen">
                                 <i class="bx bx-fullscreen"></i>
                             </button>
                         </div>
 
+                        <!-- App Notification-->
                         <div class="dropdown d-inline-block">
                             <button type="button" class="btn header-item noti-icon waves-effect" id="page-header-notifications-dropdown"
                             data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -413,12 +203,13 @@
                             </div>
                         </div>
 
+                        <!-- App User Info-->
                         <div class="dropdown d-inline-block">
                             <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
                             data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <img class="rounded-circle header-profile-user" src="{{ asset("/") }}llms/assets/images/users/avatar-1.jpg"
                                     alt="Header Avatar">
-                                <span class="d-none d-xl-inline-block ms-1" key="t-henry">{{ Auth::user()->name; }}</span>
+                                <span class="d-none d-xl-inline-block ms-1" key="t-henry">{{ Auth::user()->name }}</span>
                                 <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
                             </button>
                             <div class="dropdown-menu dropdown-menu-end">
@@ -510,14 +301,10 @@
                             </li>
 
                             <li>
-                                <a href="javascript: void(0);" class="has-arrow waves-effect">
-                                    <i class="bx bx-cog bx-spin"></i>
+                                <a href="{{ route("settings") }}" class="waves-effect">
+                                    <i class="bx bx-cog"></i>
                                     <span key="t-dashboards">Settings</span>
                                 </a>
-                                <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="#" key="t-blog">Profile</a></li>
-                                    <li><a href="#"><span class="badge rounded-pill text-bg-success float-end" key="t-new">New</span> <span key="t-jobs">Meta</span></a></li>
-                                </ul>
                             </li>
 
                             <li>
@@ -535,8 +322,6 @@
                 </div>
             </div>
             <!-- Left Sidebar End -->
-
-
 
             <!-- ============================================================== -->
             <!-- Start right Content here -->
@@ -592,7 +377,9 @@
         <!-- END layout-wrapper -->
 
         <!-- Right bar overlay-->
-        <div class="rightbar-overlay"></div>
+        <div class="rightbar-overlay">
+            hey how are you
+        </div>
 
     <!-- JAVASCRIPT -->
     <script src="{{ asset("/") }}llms/assets/libs/jquery/jquery.min.js"></script>
@@ -641,6 +428,7 @@
     <!-- App js -->
     <script src="{{ asset("/") }}llms/assets/js/app.js"></script>
 
+    <!-- App Cunstom js Code -->
     <script>
 
         let repeaterValue = 0;
@@ -649,15 +437,31 @@
             let  breadcrumbLink = document.querySelectorAll('.breadcrumb-item')[1];
             breadcrumbLink.style.setProperty('--bs-breadcrumb-divider', 'LLMS');
 
-            $('#data-repeater-add').click(function () {
+            @if( isset($student) )
 
-                $('#custom-repeater').append(
-                    "<div id='custom-inner-repeater-"+repeaterValue+"'  class='inner mb-3 row'  style='display: none'> <div class='col-md-10 col-8'> <input type='text' class='inner form-control' name='phone[]' placeholder='Enter your phone no...'/> </div> <div class='col-md-2 col-4'> <div class='d-grid'> <div  data-bs-toggle='tooltip' data-bs-placement='top"+repeaterValue+"' title='Cencel'> <div  onclick='cancelBtn()'  class='btn btn-sm btn-soft-secondary inner' id='cancelBtn-"+repeaterValue+"'><i id='icon' class='dripicons-cross' style='pointer-events: none;' ></i></div></div></div></div></div>"
-                );
+                $('#data-repeater-add').click(function () {
 
-                $("#custom-inner-repeater-"+repeaterValue).show('slow')
-                repeaterValue++;
-            });
+                    $('#custom-repeater').append(
+                        "<div id='custom-inner-repeater-"+repeaterValue+"'  class='inner mb-3 row'  style='display: none'> <div class='col-md-10 col-8'> <input type='text' class='inner form-control' name='phone[]' placeholder='Enter your phone no...'/> </div> <div class='col-md-2 col-4'> <div class='d-grid'> <div  data-bs-toggle='tooltip' data-bs-placement='top"+repeaterValue+"' title='Cencel'> <div  onclick='cancelBtn()'  class='btn btn-sm btn-soft-secondary inner' id='cancelBtn-"+repeaterValue+"'><i id='icon' class='dripicons-cross' style='pointer-events: none;' ></i></div></div></div></div></div>"
+                    );
+
+                    $("#custom-inner-repeater-"+repeaterValue).show('slow')
+                    repeaterValue++;
+                });
+
+            @elseif( isset($book) )
+
+                $('#data-repeater-add').click(function () {
+
+                    $('#custom-repeater').append(
+                        "<div id='custom-inner-repeater-"+repeaterValue+"'  class='inner mb-3 row'  style='display: none'> <div class='col-md-10 col-8'> <input type='text' class='inner form-control text-capitalize' name='author[]' placeholder='Author Name'/> </div> <div class='col-md-2 col-4'> <div class='d-grid'> <div  data-bs-toggle='tooltip' data-bs-placement='top"+repeaterValue+"' title='Cencel'> <div  onclick='cancelBtn()'  class='btn btn-sm btn-soft-secondary inner' id='cancelBtn-"+repeaterValue+"'><i id='icon' class='dripicons-cross' style='pointer-events: none;' ></i></div></div></div></div></div>"
+                    );
+
+                    $("#custom-inner-repeater-"+repeaterValue).show('slow')
+                    repeaterValue++;
+                });
+
+            @endif
 
         });
 
@@ -683,6 +487,57 @@
         }
         $("#imageUpload").change(function() {
             readURL(this);
+        });
+
+
+        // App Alert
+        const alertPlaceholder = document.getElementById('liveAlertPlaceholder')
+
+        const alert = (message, type) => {
+            const wrapper = document.createElement('div')
+            wrapper.innerHTML = [
+                `<div class="alert alert-${type} alert-dismissible bg-success bg-soft text-success" role="alert">`,
+                `   <div>${message}</div>`,
+                '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
+                '</div>'
+            ].join('')
+
+            alertPlaceholder.append(wrapper)
+        }
+
+        @if( Session::get('stdMessage') )
+            let message =  '{{ Session::get('stdMessage') }}';
+
+            alert(message, 'success')         // Calling function for app alert showing
+            setTimeout( appAlertHide, 10000); // Calling function for app alert stoping
+        @endif
+
+        function appAlertHide(){
+            document.getElementById('liveAlertPlaceholder').style.display = 'none';
+        }
+
+        $("#department").change(function () {
+
+            // $.get('book/issue/return/analysis/'+dept,  function(data){
+            //     // Display the returned data in browser
+            //     $("#result").html(data);
+            //
+            // })
+
+            let dept = $(this).val();
+            $.ajax({
+                type: "GET",
+                url : "{{ url('book/issue/return/analysis/') }}",
+                data: { dept: dept },
+                dataType: "JSON",
+                success: function (response) {
+                    $("#allBook").text(response.allBook);
+                    $("#bookAvailableACal").text(response.bookAvailableACal+" %");
+                    $("#lostBookCal").text(response.lostBookCal+" %");
+                    $("#bookingCal").text(response.bookingCal+" %");
+                    // $("#fineCal").text(response.fineCal);
+                },
+            })
         });
 
     </script>

@@ -4,17 +4,17 @@
     Book | Issue
 @endsection
 
-@section("page-title")
-     Book Issue Form
-@endsection
+{{--@section("page-title")--}}
+{{--     Book Issue Form--}}
+{{--@endsection--}}
 
-@section("menues")
-    Books / Return
-@endsection
+{{--@section("menues")--}}
+{{--    Books / Return--}}
+{{--@endsection--}}
 
-@section("sub-menu")
-    Issue Book
-@endsection
+{{--@section("sub-menu")--}}
+{{--    Issue Book--}}
+{{--@endsection--}}
 
 @section("main-content")
     <div class="row">
@@ -24,7 +24,7 @@
                     <div class="clearfix">
                         <div class="float-end">
                             <div class="input-group input-group-sm">
-                                <select class="form-select form-select-sm">
+                                <select  class="form-select form-select-sm" id="department">
                                     <option value="cse" selected>CSE</option>
                                     <option value="bba">BBA</option>
                                     <option value="mba">MBA</option>
@@ -32,12 +32,12 @@
                                 <label class="input-group-text">Department</label>
                             </div>
                         </div>
-                        <h4 class="card-title mb-4">Book Statistics</h4>
+                        <h4 class="card-title mb-4" id="result">Book Statistics</h4>
                     </div>
 
                     <div class="text-muted text-center">
                         <p class="mb-2">All Book</p>
-                        <h4>{{ $bookStatistics['allBook'] }}</h4>
+                        <h4 id="allBook">{{ $bookStatistics['allBook'] }}</h4>
                     </div>
 
                     <div class="table-responsive mt-4">
@@ -54,7 +54,7 @@
                                 </td>
                                 <td>
                                     <p class="text-muted mb-1">Books</p>
-                                    <h5 class="mb-0">{{ $bookStatistics['bookAvailableACal'] }} %</h5>
+                                    <h5 class="mb-0" id="bookAvailableACal">{{ $bookStatistics['bookAvailableACal'] }} %</h5>
                                 </td>
                             </tr>
                             <tr>
@@ -68,23 +68,9 @@
                                 </td>
                                 <td>
                                     <p class="text-muted mb-1">Books</p>
-                                    <h5 class="mb-0">{{ $bookStatistics['bookingCal'] }} %</h5>
+                                    <h5 class="mb-0" id="bookingCal">{{ $bookStatistics['bookingCal'] }} %</h5>
                                 </td>
                             </tr>
-                            {{--                            <tr>--}}
-                            {{--                                <td>--}}
-                            {{--                                    <h5 class="font-size-14 mb-1">Delayed</h5>--}}
-                            {{--                                    <p class="text-muted mb-0">Neque quis est</p>--}}
-                            {{--                                </td>--}}
-
-                            {{--                                <td>--}}
-                            {{--                                    <div id="radialchart-1" data-colors='["--bs-primary"]' class="apex-charts"></div>--}}
-                            {{--                                </td>--}}
-                            {{--                                <td>--}}
-                            {{--                                    <p class="text-muted mb-1">Books</p>--}}
-                            {{--                                    <h5 class="mb-0">10 %</h5>--}}
-                            {{--                                </td>--}}
-                            {{--                            </tr>--}}
                             <tr>
                                 <td>
                                     <h5 class="font-size-14 mb-1">Losted</h5>
@@ -96,51 +82,9 @@
                                 </td>
                                 <td>
                                     <p class="text-muted mb-1">Books</p>
-                                    <h5 class="mb-0">{{ $bookStatistics['lostBookCal'] }} %</h5>
+                                    <h5 class="mb-0" id="lostBookCal">{{ $bookStatistics['lostBookCal'] }} %</h5>
                                 </td>
                             </tr>
-                            {{--                            <tr>--}}
-                            {{--                                <td>--}}
-                            {{--                                    <h5 class="font-size-14 mb-1">Issued</h5>--}}
-                            {{--                                    <p class="text-muted mb-0">Neque quis est</p>--}}
-                            {{--                                </td>--}}
-
-                            {{--                                <td>--}}
-                            {{--                                    <div id="radialchart-1" data-colors='["--bs-primary"]' class="apex-charts"></div>--}}
-                            {{--                                </td>--}}
-                            {{--                                <td>--}}
-                            {{--                                    <p class="text-muted mb-1">Books</p>--}}
-                            {{--                                    <h5 class="mb-0">37 %</h5>--}}
-                            {{--                                </td>--}}
-                            {{--                            </tr>--}}
-                            {{--                            <tr>--}}
-                            {{--                                <td>--}}
-                            {{--                                    <h5 class="font-size-14 mb-1">Returned</h5>--}}
-                            {{--                                    <p class="text-muted mb-0">Quis autem iure</p>--}}
-                            {{--                                </td>--}}
-
-                            {{--                                <td>--}}
-                            {{--                                    <div id="radialchart-2" data-colors='["--bs-success"]' class="apex-charts"></div>--}}
-                            {{--                                </td>--}}
-                            {{--                                <td>--}}
-                            {{--                                    <p class="text-muted mb-1">Books</p>--}}
-                            {{--                                    <h5 class="mb-0">72 %</h5>--}}
-                            {{--                                </td>--}}
-                            {{--                            </tr>--}}
-                            {{--                            <tr>--}}
-                            {{--                                <td>--}}
-                            {{--                                    <h5 class="font-size-14 mb-1">Collected fine of Book</h5>--}}
-                            {{--                                    <p class="text-muted mb-0">Neque quis est</p>--}}
-                            {{--                                </td>--}}
-
-                            {{--                                <td>--}}
-                            {{--                                    <div id="radialchart-1" data-colors='["--bs-primary"]' class="apex-charts"></div>--}}
-                            {{--                                </td>--}}
-                            {{--                                <td>--}}
-                            {{--                                    <p class="text-muted mb-1">Books</p>--}}
-                            {{--                                    <h5 class="mb-0">50 %</h5>--}}
-                            {{--                                </td>--}}
-                            {{--                            </tr>--}}
                             <tr>
                                 <td>
                                     <h5 class="font-size-14 mb-1">Collected fine</h5>
@@ -152,7 +96,7 @@
                                 </td>
                                 <td>
                                     <p class="text-muted mb-1">TK:</p>
-                                    <h5 class="mb-0">{{ $bookStatistics['fineCal'] }}</h5>
+                                    <h5 class="mb-0" id="fineCal">{{ $bookStatistics['fineCal'] }}</h5>
                                 </td>
                             </tr>
                             </tbody>
@@ -164,20 +108,20 @@
 
         <div class="col-xl-8">
             <div class="card overflow-hidden">
-                <div class="bg-success bg-soft">
+                <div class="bg-primary bg-soft">
                     <div class="row">
                         <div class="col-7">
-                            <div class="text-success p-3">
-                                <h5 class="text-success">Search Your Book</h5>
+                            <div class="text-primary p-3">
+                                <h5 class="text-primary">Search Your Book</h5>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="card-body ">
                     <form action="{{ route("book.search") }}" method="get">
-                        <div class="hstack gap-3">
-                            <input type="text" class="form-control me-auto" placeholder="Enter Your Book Code.." name="book_code"/>
-                            <button type="submit" class="btn btn-success">Search</button>
+                        <div class="hstack gap-2">
+                            <input type="text" class="form-control me-auto" placeholder="Book Code, ex : 00001" name="book_code"/>
+                            <button type="submit" class="btn btn-primary">Search</button>
                         </div>
                     </form>
                 </div>
@@ -197,6 +141,7 @@
                                                     <div class="col-sm-6">
                                                         <p class="text-muted">{{ $result->roll }}</p>
                                                         <h6 class="text-muted">{{ $result->department }}</h6>
+                                                        <td><span class="badge  {{ $result->status == 1 ? 'bg-success':'bg-danger' }}">{{ $result->status == 1 ? 'Active':'Deactive' }}</span></td>
                                                         <label for="return-date" class="mt-3">Return Date</label>
                                                         <input type="date" name="return_date" id="return-date" class="form-control"/>
                                                         <input type="hidden" name="student_id"  value="{{ $result->id }}"/>
@@ -216,7 +161,9 @@
                                                 <h4 class="card-title mb-4 bg-success bg-soft py-2 px-5 text-center text-capitalize fw-bold">{{ $result->name }}</h4>
                                                 <div class="row">
                                                     <div class="col-sm-6">
-                                                        <p class="text-muted">Abdullah Al Mamun</p>
+                                                        @foreach($result->authors as $author)
+                                                            <p class="text-muted">{{ $author->name }}</p>
+                                                        @endforeach
                                                         <p class="text-muted">{{ $result->book_code }}</p>
                                                         <h6 class="text-muted">{{ $result->department }}</h6>
                                                         <input type="hidden" name="book_id" value="{{ $result->id }}"/>
@@ -235,7 +182,13 @@
                                 <div class="row">
                                    <div class="col-md-12">
                                        <div class="mt-4 card-body text-center">
-                                           <button type="button" class="btn btn-primary waves-effect waves-light btn-sm" data-bs-toggle="modal" data-bs-target=".book-issue-confirm-model">Confirm <i class="mdi mdi-progress-check ms-1"></i></button>
+                                           @foreach( $studentResult as $result)
+                                               @if( $result->status == 0 )
+                                                   <button type="button" class="btn btn-primary waves-effect waves-light btn-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="This Student Is Deactive !">Confirm <i class="mdi mdi-progress-check ms-1"></i></button>
+                                               @else
+                                                   <button type="button" class="btn btn-primary waves-effect waves-light btn-sm" data-bs-toggle="modal" data-bs-target=".book-issue-confirm-model">Confirm <i class="mdi mdi-progress-check ms-1"></i></button>
+                                               @endif
+                                           @endforeach
                                        </div>
                                    </div>
                                 </div>
@@ -274,8 +227,12 @@
                                     <h4 class="card-title mb-4 bg-success bg-soft py-2 px-5 text-center text-capitalize fw-bold">{{ $result->name }}</h4>
                                     <div class="row">
                                         <div class="col-sm-6">
-                                            <p class="text-muted">Abdullah Al Mamun</p>
+                                            @foreach($result->authors as $author)
+                                                <p class="text-muted">{{ $author->name }}</p>
+                                            @endforeach
                                             <h6 class="text-muted">{{ $result->department }}</h6>
+                                            <td><span class="badge  {{ $result->status == 1 ? 'bg-success':'bg-danger' }}">{{ $result->status == 1 ? 'Active':'Deactive' }}</span></td>
+
                                             <div class="mt-4">
                                                 <a href="" class="btn btn-success waves-effect waves-light btn-sm" data-bs-toggle="modal" data-bs-target=".member-code-search-model">Available <i class="mdi mdi-progress-check ms-1"></i></a>
                                             </div>
@@ -299,23 +256,35 @@
                         @if( count($bookResult) > 0 )
                             @foreach( $bookResult as $result )
                                 <div class="card-body">
-                                    <h4 class="card-title mb-4 bg-success bg-soft py-2 px-5 text-center text-capitalize fw-bold">{{ $result->name }}</h4>
+                                    <div class="text-end">
+                                        <a href="{{ route('book.issue') }}"  class="btn btn-close"></a>
+                                    </div>
                                     <div class="row">
                                         <div class="col-sm-6">
-                                            <p class="text-muted">Abdullah Al Mamun</p>
-                                            <h6 class="text-muted">{{ $result->department }}</h6>
-
+                                            <h4 class="card-title mb-0  bg-primary bg-soft py-2 px-5 text-center text-capitalize fw-bold w-100">{{ $result->name }}</h4>
+                                            <div style="height: 180px;">
+                                                <img src="{{ asset( $result->image ) }}" alt="" class=" h-100 w-100"/>
+                                            </div>
+                                            <a href="" class="btn btn-primary waves-effect waves-light w-100 rounded-0" data-bs-toggle="modal" data-bs-target="">View Detail <i class="mdi mdi-progress-check ms-1"></i></a>
+                                        </div>
+                                        <div class="col-sm-6">
+{{--                                            @foreach($result->authors as $author)--}}
+{{--                                                <p class="text-muted">{{ $author->name }}</p>--}}
+{{--                                            @endforeach--}}
+                                            <h6 class="text-muted text-uppercase"><span class="text-capitalize">Department : </span>{{ $result->department }}</h6>
+                                            <h6 class="text-muted text-uppercase"><span class="text-capitalize">Book Code : </span>{{ $result->book_code }}</h6>
                                             @if( isset( $bookingResult ) )
                                                 @if( isset( $bookLostResult ) )
                                                     @foreach( $bookLostResult as $issueBookResult)
-                                                        <h6 class="text-muted">This book is Lost  by :  {{ $issueBookResult->student->name }}</h6>
+                                                        <h6 class="text-muted text-uppercase mt-3"><span class="text-capitalize">lost by :  </span>{{ $issueBookResult->student->name }}</h6>
                                                         <div class="row">
                                                            <div class="col-md-12">
-                                                               <h1>Not Available</h1>
+                                                               <h1 class="text-uppercase text-center bg-danger soft-bg py-3 px-2 mt-3">Not Available</h1>
                                                            </div>
                                                         </div>
                                                     @endforeach
                                                 @else
+                                                    <td class="text-uppercase"><span class="text-capitalize">Active Status : <span class="badge  {{ $result->status == 1 ? 'bg-success':'bg-danger' }}">{{ $result->status == 1 ? 'Active':'Deactive' }}</span></td>
                                                     @foreach( $bookingResult as $issueBookResult )
                                                         <h6 class="text-muted">This book is already have been booked by :  {{ $issueBookResult->student->name }}</h6>
                                                         <div class="row">
@@ -390,16 +359,16 @@
                                                 @endif
                                             @else
                                                 <div class="mt-4">
-                                                    <a href="" class="btn btn-success waves-effect waves-light btn-sm" data-bs-toggle="modal" data-bs-target=".member-code-search-model">Available <i class="mdi mdi-progress-check ms-1"></i></a>
+                                                    @if( $result->status == 0 )
+                                                        <button type="button" class="btn btn-success waves-effect waves-light btn-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="This Book Is Deactive !">Available <i class="mdi mdi-progress-check ms-1"></i></button>
+                                                    @else
+                                                        <a href="" class="btn btn-success waves-effect waves-light btn-sm" data-bs-toggle="modal" data-bs-target=".member-code-search-model">Available <i class="mdi mdi-progress-check ms-1"></i></a>
+                                                    @endif
                                                 </div>
                                             @endif
 
                                         </div>
-                                        <div class="col-sm-6">
-                                            <div class="mt-4 mt-sm-0">
-                                                <img src="{{ asset( $result->image ) }}" alt="" class="img-thumbnail h-50 w-50"/>
-                                            </div>
-                                        </div>
+
                                     </div>
                                 </div>
                             @endforeach
@@ -412,8 +381,8 @@
                         @endif
                    @endif
                @else
-                    <div class="card-body m-auto">
-                        <div class="card-title text-danger">
+                    <div class="card-body pt-4 pb-2">
+                        <div class="alert alert-info" role="alert">
                             No Book Avilable Here, Please Search By Book Code.
                         </div>
                     </div>
@@ -446,7 +415,6 @@
                                                 <th class="align-middle">Book Name</th>
                                                 <th class="align-middle">Member Name</th>
                                                 <th class="align-middle">Department</th>
-                                                <th class="align-middle">Return Date</th>
                                                 <th class="align-middle">View Details</th>
                                             </tr>
                                             </thead>
@@ -469,9 +437,6 @@
                                                         {{ $latestIssueResult->student->department }}
                                                     </td>
                                                     <td>
-                                                        <span class="badge badge-pill badge-soft-success font-size-11">{{ $latestIssueResult->return_date }}</span>
-                                                    </td>
-                                                    <td>
                                                         <!-- Button trigger modal -->
                                                         <button type="button" class="btn btn-primary btn-sm btn-rounded waves-effect waves-light" data-bs-toggle="modal" data-bs-target=".book-issue-detail-model-{{ $latestIssueResult->id }}">
                                                             View Details
@@ -480,7 +445,7 @@
                                                         <!-- Issue Details Modal -->
                                                         <div class="modal fade book-issue-detail-model-{{ $latestIssueResult->id }}" tabindex="-1" role="dialog" aria-labelledby="book-issue-detail-model-{{ $latestIssueResult->id }}" aria-hidden="true">
                                                             <div class="modal-dialog modal-dialog-scrollable" role="document" style="max-width: 900px">
-                                                                <div class="modal-content bg-secondary bg-soft">
+                                                                <div class="modal-content">
                                                                     <div class="modal-header">
                                                                         <h5 class="modal-title text-white" id="book-issue-detail-model-{{ $latestIssueResult->id }}">Return Details</h5>
                                                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -488,7 +453,7 @@
                                                                     <div class="modal-body ">
                                                                         <div class="container-fluid">
                                                                             <div class="row">
-                                                                                <div class="card bg-secondary bg-soft">
+                                                                                <div class="card">
                                                                                     <div class="row g-2">
                                                                                         <div class="col-md-4">
 
@@ -651,7 +616,7 @@
                                                         <!-- Return Details Modal -->
                                                         <div class="modal fade book-return-detail-model-{{ $latestReturnResult->id }}" tabindex="-1" role="dialog" aria-labelledby="book-return-detail-model-{{ $latestReturnResult->id }}" aria-hidden="true">
                                                             <div class="modal-dialog modal-dialog-scrollable" role="document" style="max-width: 900px">
-                                                                <div class="modal-content bg-secondary bg-soft">
+                                                                <div class="modal-content ">
                                                                     <div class="modal-header">
                                                                         <h5 class="modal-title text-white" id="book-return-detail-model-{{ $latestReturnResult->id }}">Return Details</h5>
                                                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -659,7 +624,7 @@
                                                                     <div class="modal-body ">
                                                                         <div class="container-fluid">
                                                                             <div class="row">
-                                                                                <div class="card bg-secondary bg-soft">
+                                                                                <div class="card">
                                                                                     <div class="row g-2">
                                                                                         <div class="col-md-4">
 
@@ -779,33 +744,40 @@
 
     <!--  member code search model -->
     <div class="modal fade member-code-search-model" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
+        <div class="modal-dialog modal-dialog-centered modal-sm modal-sm">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="myLargeModalLabel">Search Form</h5>
+                <div class="modal-header bg-primary bg-soft">
+                    <h5 class="modal-title text-primary" id="myLargeModalLabel">Find Member</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <div class="card overflow-hidden">
-                        <div class="bg-success bg-soft">
-                            <div class="row">
-                                <div class="col-7">
-                                    <div class="text-success p-3">
-                                        <h5 class="text-success">Search Library Member By Member Code</h5>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+{{--                        <div class="bg-success bg-soft">--}}
+{{--                            <div class="row">--}}
+{{--                                <div class="col-7">--}}
+{{--                                    <div class="text-primary p-3">--}}
+{{--                                        <h5 class="text-primary">Please Enter A Member Code</h5>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
                         <div class="card-body ">
                             <form action="{{ route("member.search") }}" method="get">
-                                <div class="hstack gap-3">
+                                <div class="hstack gap-2">
                                     @if( isset($bookResult) )
                                         @foreach( $bookResult as $result )
                                             <input type="hidden"  name="book_code" value="{{ $result->book_code }}"/>
                                         @endforeach
                                     @endif
-                                    <input type="text" class="form-control me-auto" placeholder="Enter Your Member Code.." name="member_code" required/>
-                                    <button type="submit" class="btn btn-success">Search</button>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <input type="text" class="form-control me-auto text-muted fw-semibold " placeholder="Member Code Ex: 00001" name="member_code" required/>
+
+                                        </div>
+                                        <div class="col-md-12 text-end mt-1">
+                                            <button type="submit" class="btn btn-primary">Search</button>
+                                        </div>
+                                    </div>
                                 </div>
                             </form>
                         </div>

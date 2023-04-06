@@ -13,7 +13,7 @@ use App\Models\BookIssue;
 
 class BookIsssueController extends Controller
 {
-    private  $bookSearch, $studentSearch, $issuBook, $book, $book_count;
+    private  $bookSearch, $studentSearch, $issuBook, $book, $book_count, $dept;
     private  $availableBook, $issueBook, $booking, $lostBook, $bookCal, $bookingCal;
     private  $bookingArr = [], $lostBookArr = [], $bookStatistics = [];
 
@@ -68,7 +68,7 @@ class BookIsssueController extends Controller
         $this->issueBook = BookIssue::bookIssue( $request );
         Booking::bookBooking($request, $this->issueBook->id);
 
-        return redirect('book/issue')->with('issueMessage', 'Successfully coplete this book');
+        return redirect('book/issue')->with('issueMessage', 'Successfully complete this book');
     }
 
     function bookAnalysis( $department ) {
@@ -98,12 +98,53 @@ class BookIsssueController extends Controller
 
         $this->bookStatistics = [
             'allBook'           => count( Book::where('department', $department)->get() ),
-            'bookAvailableACal' => ($this->availableBook * 100)/ count(Book::where('department', 'cse')->get()),
-            'lostBookCal'       => (( count($this->lostBookArr) * 100 )/ count(Book::where('department', 'cse')->get())),
-            'bookingCal'        => (( count($this->bookingArr) * 100 )/ count(Book::where('department', 'cse')->get())),
+            'bookAvailableACal' => round(($this->availableBook * 100)/ count(Book::where('department', 'cse')->get())),
+            'lostBookCal'       => round((( count($this->lostBookArr) * 100 )/ count(Book::where('department', 'cse')->get()))) ,
+            'bookingCal'        => round((( count($this->bookingArr) * 100 )/ count(Book::where('department', 'cse')->get()))) ,
             'fineCal'           => (count(BookLost::all())*300),
         ];
 
         return $this->bookStatistics;
     }
+
+    function bookAnalysisByDynamic() {
+
+        $this->dept = $_GET['dept'];
+
+        // all book calculation
+        $this->bookCal = Book::where('department', $this->dept)->get();
+
+        // cse department Booking of Book number
+        foreach ( $this->bookCal as $bookResult) {
+            $this->bookingCal = Booking::where('book_id', $bookResult->id)->get();
+
+            if ( $this->bookingCal->isNotEmpty() ) {
+                array_push($this->bookingArr, $this->bookingCal);
+            }
+        }
+
+        // cse department  lost of Book number
+        foreach ( $this->bookCal as $bookResult) {
+            $this->lostBook = BookLost::where('book_id', $bookResult->id)->get();
+
+            if ( $this->lostBook->isNotEmpty() ) {
+                array_push($this->lostBookArr, $this->lostBook);
+            }
+        }
+
+        $this->availableBook = count(Book::where('department', 'cse')->get()) - ( count($this->bookingArr) + count($this->lostBookArr) );
+
+        $this->bookStatistics = [
+            'allBook'           => count( Book::where('department', $this->dept)->get() ),
+            'bookAvailableACal' => round(($this->availableBook * 100)/ count(Book::where('department', 'cse')->get())),
+            'lostBookCal'       => round((( count($this->lostBookArr) * 100 )/ count(Book::where('department', 'cse')->get()))) ,
+            'bookingCal'        => round((( count($this->bookingArr) * 100 )/ count(Book::where('department', 'cse')->get()))) ,
+//            'fineCal'           => (count(BookLost::all())*300),
+        ];
+
+        return response()->json( $this->bookStatistics );
+
+    }
+
+
 }

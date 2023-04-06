@@ -84,4 +84,20 @@ class Student extends Model
     public function student_numbers() {
         return $this->hasMany(StudentNumber::class);
     }
+
+    public function issue() {
+        return $this->hasMany(BookIssue::class);
+    }
+
+    public function return() {
+        return $this->hasMany(BookReturn::class);
+    }
+
+    public function lost() {
+        return $this->hasMany(BookLost::class);
+    }
+
+    public function booking() {
+        return $this->hasMany(Booking::class);
+    }
 }
